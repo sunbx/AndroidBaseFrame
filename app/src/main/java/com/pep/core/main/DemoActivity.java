@@ -35,7 +35,7 @@ import com.pep.core.model.BaseListModel;
 import com.pep.core.model.JokeModel;
 import com.pep.core.uibase.PEPLoadingView;
 import com.pep.core.uibase.PEPPhotoPageFragment;
-import com.pep.core.view.LeftAnimateDemoDialog;
+import com.pep.core.view.AnimateDemoDialog;
 import com.squareup.leakcanary.LeakCanary;
 
 import java.io.File;
@@ -235,8 +235,8 @@ public class DemoActivity extends PEPBaseActivity implements DemoContract.View {
                 pepVideoFragment.show(getSupportFragmentManager(), "PEPVideoFragment");
                 break;
             case R.id.btn_animate:
-                LeftAnimateDemoDialog leftAnimateDemoFragment = new LeftAnimateDemoDialog();
-                leftAnimateDemoFragment.show(getSupportFragmentManager(), "LeftAnimateDemoDialog");
+                AnimateDemoDialog leftAnimateDemoFragment = new AnimateDemoDialog();
+                leftAnimateDemoFragment.show(getSupportFragmentManager(), "AnimateDemoDialog");
                 break;
             case R.id.btn_play:
                 pepAudioManager.play();

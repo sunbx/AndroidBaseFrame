@@ -7,19 +7,29 @@ import com.pep.core.R;
 import com.pep.core.libbase.PEPBaseDialogFragment;
 
 
-public class LeftAnimateDemoDialog extends PEPBaseDialogFragment {
+public class AnimateDemoDialog extends PEPBaseDialogFragment {
 
     private View contentView;
 
 
     @Override
     protected int getAnimateStart() {
-        return Gravity.TOP;
+        return Gravity.BOTTOM;
     }
 
     @Override
     public int getLayoutId() {
         return R.layout.fragment_left_demo;
+    }
+
+    @Override
+    protected boolean isAnimateKick() {
+        return true;
+    }
+
+    @Override
+    protected boolean isAnimateTouch() {
+        return true;
     }
 
     @Override

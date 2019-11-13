@@ -33,7 +33,7 @@ dependencies {
     androidTestImplementation 'androidx.test:runner:1.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     implementation 'com.github.chrisbanes.photoview:library:1.2.4'
-
+    api 'com.nineoldandroids:library:2.4.0'
     api 'com.github.JakeWharton:ViewPagerIndicator:2.4.1'
     api 'com.jaeger.statusbarutil:library:1.5.1'
     api 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0'
