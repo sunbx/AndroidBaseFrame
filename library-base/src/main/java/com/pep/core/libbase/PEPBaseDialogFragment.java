@@ -35,7 +35,7 @@ import static android.view.KeyEvent.KEYCODE_BACK;
  * @class describe
  */
 public abstract class PEPBaseDialogFragment extends DialogFragment {
-    public View contentView;
+    public ViewGroup contentView;
 
     @Override
     public void onStart() {
@@ -53,7 +53,7 @@ public abstract class PEPBaseDialogFragment extends DialogFragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        contentView = inflater.inflate(getLayoutId(), container, false);
+        contentView = (ViewGroup) inflater.inflate(getLayoutId(), container, false);
         switch (getAnimateStart()) {
             case Gravity.TOP:
                 PEPDialogAnimate.topStartAnimate(contentView, isAnimateKick());
@@ -69,8 +69,7 @@ public abstract class PEPBaseDialogFragment extends DialogFragment {
                 break;
             default:
         }
-        View view = findViewById(R.id.content);
-        if (view != null && isAnimateTouch()) {
+        if (contentView != null && isAnimateTouch()) {
             contentView.setOnTouchListener(new View.OnTouchListener() {
                 @Override
                 public boolean onTouch(View view, MotionEvent motionEvent) {
