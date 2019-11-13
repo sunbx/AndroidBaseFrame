@@ -4,18 +4,19 @@ import android.animation.Animator;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.pep.core.uibase.PEPAnimate;
-
-import java.util.Objects;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
+
+import com.pep.core.uibase.PEPAnimate;
+
+import java.util.Objects;
 
 import static android.view.KeyEvent.KEYCODE_BACK;
 
@@ -30,11 +31,13 @@ import static android.view.KeyEvent.KEYCODE_BACK;
  * @class describe
  */
 public abstract class PEPBaseDialogFragment extends DialogFragment {
-    public View contentView;
+    public  View contentView;
+    private int  animateStart;
 
     @Override
     public void onStart() {
         super.onStart();
+        animateStart = getAnimateStart();
         PEPAnimate.initWindow(this, getAnimateStart());
     }
 
@@ -49,7 +52,22 @@ public abstract class PEPBaseDialogFragment extends DialogFragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         contentView = inflater.inflate(getLayoutId(), container, false);
-        PEPAnimate.leftStartAnimate(contentView);
+        switch (animateStart) {
+            case Gravity.TOP:
+                PEPAnimate.topStartAnimate(contentView);
+                break;
+            case Gravity.BOTTOM:
+                PEPAnimate.bottomStartAnimate(contentView);
+                break;
+            case Gravity.LEFT:
+                PEPAnimate.leftStartAnimate(contentView);
+                break;
+            case Gravity.RIGHT:
+                PEPAnimate.rightStartAnimate(contentView);
+                break;
+            default:
+        }
+
 
         Objects.requireNonNull(getDialog()).setOnKeyListener(dialogInterface);
 
@@ -59,7 +77,7 @@ public abstract class PEPBaseDialogFragment extends DialogFragment {
         return contentView;
     }
 
-    public View findViewById(int id){
+    public View findViewById(int id) {
         return contentView.findViewById(id);
     }
 
@@ -71,7 +89,8 @@ public abstract class PEPBaseDialogFragment extends DialogFragment {
     public abstract void initView();
 
     public abstract void initData();
-    public void initListener(){
+
+    public void initListener() {
 
     }
 
@@ -80,6 +99,25 @@ public abstract class PEPBaseDialogFragment extends DialogFragment {
         //执行关闭动画
         PEPAnimate.leftCloseAnimate(contentView, animatorListener);
     }
+
+    public void close(int animateStart) {
+        switch (animateStart) {
+            case Gravity.TOP:
+                PEPAnimate.topCloseAnimate(contentView, animatorListener);
+                break;
+            case Gravity.BOTTOM:
+                PEPAnimate.bottomCloseAnimate(contentView, animatorListener);
+                break;
+            case Gravity.LEFT:
+                PEPAnimate.leftCloseAnimate(contentView, animatorListener);
+                break;
+            case Gravity.RIGHT:
+                PEPAnimate.rightCloseAnimate(contentView, animatorListener);
+                break;
+            default:
+        }
+    }
+
 
     /**
      * The Dialog interface.
