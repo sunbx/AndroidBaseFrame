@@ -115,8 +115,8 @@ public abstract class PEPBaseDialogFragment extends DialogFragment {
                                 }
                             }
 
-                            if (getAnimateStart() == Gravity.RIGHT) {
-                                if (slideX <= 0) {
+                            if (getAnimateStart() == Gravity.LEFT) {
+                                if (slideX >= 0) {
                                     ViewHelper.setX(view, -slideX);
                                     Log.e("PEPBaseDialogFragment", "slideX:" + -slideX);
                                 }
@@ -128,8 +128,6 @@ public abstract class PEPBaseDialogFragment extends DialogFragment {
                                     Log.e("PEPBaseDialogFragment", "slideX:" + -slideX);
                                 }
                             }
-
-
 
 
                             break;
