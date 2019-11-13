@@ -6,16 +6,14 @@ import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.util.DisplayMetrics;
-import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 
+import androidx.fragment.app.DialogFragment;
 
 import java.util.Objects;
-
-import androidx.fragment.app.DialogFragment;
 
 public class PEPAnimate {
 
@@ -33,7 +31,7 @@ public class PEPAnimate {
 
     public static void topStartAnimate(View view) {
         if(view.getY() == 0){
-            view.setY(-Y);
+            view.setY(-getScreenHeight(view.getContext()));
         }
 
         Objects.requireNonNull(view).animate().translationY(0).setDuration(500);
@@ -41,7 +39,7 @@ public class PEPAnimate {
 
     public static void bottomStartAnimate(View view) {
         if(view.getY() == 0){
-            view.setY(Y);
+            view.setY(getScreenHeight(view.getContext()));
         }
 
         Objects.requireNonNull(view).animate().translationY(0).setDuration(500);

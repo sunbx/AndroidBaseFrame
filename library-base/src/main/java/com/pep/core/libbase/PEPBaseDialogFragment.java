@@ -37,7 +37,6 @@ public abstract class PEPBaseDialogFragment extends DialogFragment {
     @Override
     public void onStart() {
         super.onStart();
-        animateStart = getAnimateStart();
         PEPAnimate.initWindow(this, getAnimateStart());
     }
 
@@ -52,7 +51,7 @@ public abstract class PEPBaseDialogFragment extends DialogFragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         contentView = inflater.inflate(getLayoutId(), container, false);
-        switch (animateStart) {
+        switch (getAnimateStart()) {
             case Gravity.TOP:
                 PEPAnimate.topStartAnimate(contentView);
                 break;
@@ -97,7 +96,7 @@ public abstract class PEPBaseDialogFragment extends DialogFragment {
 
     public void close() {
         //执行关闭动画
-        PEPAnimate.leftCloseAnimate(contentView, animatorListener);
+        dismiss();
     }
 
     public void close(int animateStart) {
@@ -128,7 +127,7 @@ public abstract class PEPBaseDialogFragment extends DialogFragment {
             //监听dialog 返回键
             if (KEYCODE_BACK == i && keyEvent.getAction() == KeyEvent.ACTION_UP) {
                 //执行关闭动画
-                PEPAnimate.leftCloseAnimate(contentView, animatorListener);
+                close(getAnimateStart());
 
 
                 return true;
