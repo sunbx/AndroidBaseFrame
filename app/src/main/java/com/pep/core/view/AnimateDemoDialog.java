@@ -18,7 +18,7 @@ public class AnimateDemoDialog extends PEPBaseDialogFragment {
 
     @Override
     protected int getAnimateStart() {
-        return Gravity.LEFT;
+        return Gravity.BOTTOM;
     }
 
     @Override
