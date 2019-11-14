@@ -11,22 +11,20 @@
 
     </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/content"
+    <com.pep.core.uibase.TouchLinLayout
         android:layout_width="300dp"
-        android:layout_height="200dp"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true">
+        android:layout_height="match_parent"
+        android:layout_centerVertical="true"
+        android:background="#ffffff"
+        >
 
-        <ImageView
+        <ListView
+            android:id="@+id/lv_view"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:src="@color/colorAccent">
+            android:layout_height="match_parent" />
 
 
-        </ImageView>
-
-    </LinearLayout>
+    </com.pep.core.uibase.TouchLinLayout>
 
 
 </RelativeLayout>
