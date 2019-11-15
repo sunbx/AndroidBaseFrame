@@ -54,7 +54,7 @@ public class TouchLinLayout extends LinearLayout {
                 break;
             case MotionEvent.ACTION_MOVE:
                 if (isLeftRight == 1) {
-                    onTouchEvent(motionEvent);
+                    onTouchThisEvent(motionEvent);
                     Log.e("TouchLinLayout", " onInterceptTouchEvent  33333333333333333333");
                     return true;
                 } else if (isLeftRight == 2) {
@@ -79,7 +79,7 @@ public class TouchLinLayout extends LinearLayout {
             case MotionEvent.ACTION_UP:
                 Log.e("TouchLinLayout", " dispatchTouchEvent ACTION_UP 111111111111111111111");
                 if (isLeftRight == 1) {
-                    onTouchEvent(motionEvent);
+                    onTouchThisEvent(motionEvent);
                 }
 
                 break;
@@ -152,9 +152,8 @@ public class TouchLinLayout extends LinearLayout {
     private int     direction;
     private boolean isAnimateKick;
 
-    @Override
-    public boolean onTouchEvent(MotionEvent motionEvent) {
-        if (isLeftRight == 0) {
+    public boolean onTouchThisEvent(MotionEvent motionEvent) {
+        if (isLeftRight == 0 ) {
             return false;
         }
         switch (motionEvent.getAction()) {
