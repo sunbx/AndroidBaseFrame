@@ -218,12 +218,8 @@ public class DemoActivity extends PEPBaseActivity implements DemoContract.View {
             case R.id.btn_image_page:
 
                 ArrayList<String> urls = new ArrayList<>();
-                urls.add("http://b-ssl.duitang.com/uploads/item/201512/07/20151207151559_n2sf3.jpeg");
-                urls.add("https://b-ssl.duitang.com/uploads/item/201709/14/20170914120928_m3QLv.jpeg");
-                urls.add("http://b-ssl.duitang.com/uploads/item/201209/03/20120903183740_c5Tar.jpeg");
-                urls.add("http://pic40.nipic.com/20140424/18085978_175633400193_2.jpg");
-                urls.add("http://b-ssl.duitang.com/uploads/blog/201401/16/20140116161553_Mus5Z.jpeg");
-                urls.add("http://b-ssl.duitang.com/uploads/item/201803/27/20180327110700_ywqpv.jpg");
+                urls.add("/data/data/com.pep.szjc.simple.new/files/pepbook/resource/pub_cloud/21/1263001101121/126300110112120180612134750361/c11_001_01.jpg");
+
 
                 PEPPhotoPageFragment pepPhotoPageFragment = new PEPPhotoPageFragment();
                 pepPhotoPageFragment.addUrls(urls);

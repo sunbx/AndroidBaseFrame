@@ -5,17 +5,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.viewpagerindicator.CirclePageIndicator;
-
-import java.util.ArrayList;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
-import androidx.viewpager.widget.ViewPager;
+
+import com.viewpagerindicator.CirclePageIndicator;
+
+import java.util.ArrayList;
 
 
 /**
@@ -53,7 +52,7 @@ public class PEPPhotoPageFragment extends DialogFragment {
         assert getArguments() != null;
         urls = (ArrayList<String>) getArguments().getSerializable("urls");
         if (urls == null || urls.size() == 0) {
-            throw new RuntimeException("urls is null ");
+            return;
         }
         ImageOriginPager viewPager = contentView.findViewById(R.id.viewPager);
         CirclePageIndicator circlePage = contentView.findViewById(R.id.circlePage);
