@@ -44,7 +44,7 @@ public class PhotoPageViewFragment extends Fragment {
         View      root  = inPhotoPageViewFragmentflater.inflate(R.layout.view_image, container, false);
         PhotoView image = root.findViewById(R.id.image);
         String    url   = (String) getArguments().get("url");
-        if (url.contains("http://") || url.contains("https//")) {
+        if (url.contains("http://") || url.contains("https://")) {
             PEPImageManager.getInstance().load(this, image, url);
         }else{
             File file = new File(url);
